@@ -14,7 +14,6 @@ public class  mka: MonoBehaviour
 
     public Vector3 offset;
 
-
     void Update()
     {
         

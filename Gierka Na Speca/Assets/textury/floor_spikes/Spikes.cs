@@ -6,29 +6,26 @@ public class Spikes: MonoBehaviour
 {
    public bool spike;
     private Animator anim;
-   private void OnTriggerEnter2D(Collider2D collision)
-    {
-       
-       if (collision.tag == "Player")
-        { 
-            spike = true;
-        }
-        else
-        {
-            spike = false;
-        }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+            spike = true;
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        spike = false;
     }
     void Start()
     {
-        
+      
     }
 
  
     void Update()
     { anim = GetComponent<Animator>();
-        
-        anim.SetBool("on_spikes", spike);
+    
+      anim.SetBool("on_spikes", spike);
         
     }
 }
