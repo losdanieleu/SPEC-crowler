@@ -47,8 +47,6 @@ public class magtest : MonoBehaviour
 
     void Start()
     {
-
-
         rbBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }

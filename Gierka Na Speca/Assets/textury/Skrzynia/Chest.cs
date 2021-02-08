@@ -23,7 +23,7 @@ public class Chest : MonoBehaviour
     {
         anim = GetComponent<Animator>();
 
-        anim.SetBool("chest_on", chest);
+         anim.SetBool("chest_on", chest);
 
     }
 }
