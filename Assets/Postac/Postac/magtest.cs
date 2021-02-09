@@ -8,7 +8,7 @@ using UnityEngine;
 public class magtest : MonoBehaviour
 {
     public bool alive;
-    public float HP;
+    public float HP=100;
     public float movementspeed;
     public bool flip = true;
     private Rigidbody2D rbBody;
@@ -53,20 +53,26 @@ public class magtest : MonoBehaviour
 
     void is_alive()
     {
-
-        if (HP > 0)
+        if (Input.GetKey(KeyCode.F))
         {
-            alive = true;
-        }
-        else if (HP <= 0)
-        {
-            alive = false;
+            HP = HP - 25;
+            if (HP > 0)
+            {
+                alive = true;
+            }
+            else if (HP <= 0)
+            {
+                alive = false;
+                Debug.Log("Zdeh");
+                Application.Quit();
+            }
         }
 
     }
 
     void Update()
     {
+
         is_alive();
         move();
         Turning();
@@ -88,6 +94,7 @@ public class magtest : MonoBehaviour
     {
         GetInput();
         transform.Translate(direction * movementspeed * Time.deltaTime);
+        //rbBody.velocity = direction * movementspeed;
         //rbBody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * movementspeed, Input.GetAxisRaw("Vertical") * movementspeed);
     }
 
@@ -112,8 +119,5 @@ public class magtest : MonoBehaviour
             direction += Vector2.right;
         }
         Debug.Log(direction);
-
-
-    
     }
 }
