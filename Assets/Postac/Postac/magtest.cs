@@ -88,7 +88,6 @@ public class magtest : MonoBehaviour
     {
         GetInput();
         transform.Translate(direction * movementspeed * Time.deltaTime);
-        //rbBody.velocity = direction * movementspeed;
         //rbBody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * movementspeed, Input.GetAxisRaw("Vertical") * movementspeed);
     }
 
