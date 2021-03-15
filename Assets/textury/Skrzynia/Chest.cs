@@ -7,9 +7,17 @@ public class Chest : MonoBehaviour
     public bool chest;
     private Animator anim;
 
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        chest = true;
+        if (collision.gameObject.tag == "Player")
+        {
+            chest = true;
+        }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
@@ -21,10 +29,9 @@ public class Chest : MonoBehaviour
 
     void Update()
     {
-        anim = GetComponent<Animator>();
+        
 
          anim.SetBool("chest_on", chest);
 
     }
 }
-

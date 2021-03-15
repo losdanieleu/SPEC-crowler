@@ -63,10 +63,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\EyePortal.cs" />
     <Compile Include="Assets\ItmePickup.cs" />
     <Compile Include="Assets\Menu\MainMenu.cs" />
     <Compile Include="Assets\Postac\Postac\magtest.cs" />
     <Compile Include="Assets\Postac\Postac\szczur.cs" />
+    <Compile Include="Assets\RatAtk.cs" />
     <Compile Include="Assets\Szczur.cs" />
     <Compile Include="Assets\mka.cs" />
     <Compile Include="Assets\textury\Skrzynia\Chest.cs" />
