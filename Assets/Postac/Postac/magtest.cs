@@ -8,10 +8,17 @@ using UnityEngine;
 public class magtest : MonoBehaviour
 {
     public bool alive;
-    public float HP=100;
     public float movementspeed;
     public bool flip = true;
     private Rigidbody2D rbBody;
+
+	public int maxHealth = 100;
+	public int currentHealth;
+	public HealthBar healthBar;
+	
+	public int maxMana = 200;
+	public int currentMana;
+	public ManaBar manaBar;
 
     private Vector2 direction;
     private Animator anim;
@@ -49,31 +56,16 @@ public class magtest : MonoBehaviour
     {
         rbBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+		currentHealth = maxHealth;
+		healthBar.SetMaxHealth(maxHealth);
+		currentMana = maxMana;
+		manaBar.SetMaxMana(maxMana);
     }
 
-    void is_alive()
-    {
-        if (Input.GetKey(KeyCode.F))
-        {
-            HP = HP - 25;
-            if (HP > 0)
-            {
-                alive = true;
-            }
-            else if (HP <= 0)
-            {
-                alive = false;
-                Debug.Log("Zdeh");
-                Application.Quit();
-            }
-        }
-
-    }
+    
 
     void Update()
     {
-
-        is_alive();
         move();
         Turning();
 
@@ -118,6 +110,27 @@ public class magtest : MonoBehaviour
         {
             direction += Vector2.right;
         }
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			TakeDamage(5);
+		}
+		if (Input.GetKeyDown(KeyCode.C))
+		{
+			LoseMana(10);
+		}
         Debug.Log(direction);
     }
+	
+	void TakeDamage(int damage)
+	{
+		 currentHealth -= damage;
+		 healthBar.SetHealth(currentHealth);
+	}
+	void LoseMana(int manalose)
+	{
+		 currentMana -= manalose;
+		 manaBar.SetMana(currentMana);
+	}
+	
+
 }
