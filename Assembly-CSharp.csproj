@@ -63,8 +63,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Bars.cs" />
     <Compile Include="Assets\EyePortal.cs" />
+    <Compile Include="Assets\EyePortal2.cs" />
+    <Compile Include="Assets\HealthBar.cs" />
     <Compile Include="Assets\ItmePickup.cs" />
+    <Compile Include="Assets\ManaBar.cs" />
     <Compile Include="Assets\Menu\MainMenu.cs" />
     <Compile Include="Assets\Postac\Postac\magtest.cs" />
     <Compile Include="Assets\Postac\Postac\szczur.cs" />
