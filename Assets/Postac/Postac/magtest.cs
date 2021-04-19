@@ -7,8 +7,13 @@ using UnityEngine;
 
 public class magtest : MonoBehaviour
 {
-    public bool alive;
-    public float HP=100;
+    public int maxHealth = 100;
+	public int currentHealth;
+	public HealthBar healthBar;
+	public int maxMana = 150;
+	public int currentMana;
+	public ManaBar manaBar;
+	
     public float movementspeed;
     public bool flip = true;
     private Rigidbody2D rbBody;
@@ -47,33 +52,32 @@ public class magtest : MonoBehaviour
 
     void Start()
     {
+		currentHealth = maxHealth;
+		currentMana = maxMana;
+		healthBar.SetMaxHealth(maxHealth);
+		manaBar.SetMaxMana(maxMana);
         rbBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
 
-    void is_alive()
+    
+void is_alive()
     {
-        if (Input.GetKey(KeyCode.F))
+		if (currentHealth > 0)
+		{
+			
+		}
+        else if (currentHealth <= 0)
         {
-            HP = HP - 25;
-            if (HP > 0)
-            {
-                alive = true;
-            }
-            else if (HP <= 0)
-            {
-                alive = false;
-                Debug.Log("Zdeh");
-                Application.Quit();
-            }
-        }
-
+			currentHealth = 0;
+			Debug.Log("Zdeh");
+			Application.Quit();
+		}
     }
-
     void Update()
     {
 
-        is_alive();
+    
         move();
         Turning();
 
@@ -87,6 +91,17 @@ public class magtest : MonoBehaviour
 
             anim.SetBool("run", false);
         }
+		
+		if (Input.GetKey(KeyCode.F))
+        {
+            currentHealth -= 10;
+			healthBar.SetHealth(currentHealth);
+		}
+		if (Input.GetKey(KeyCode.B))
+        {
+            currentMana -= 30;
+			manaBar.SetMana(currentMana);
+		}
     }
 
     //============================PORUSZANIE=========================================
