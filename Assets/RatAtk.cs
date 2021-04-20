@@ -6,7 +6,7 @@ public class RatAtk : MonoBehaviour
 {
     public bool atk;
     private Animator anim;
-
+    public magtest Player;
     public void OnTriggerEnter2D(Collider2D collision)
     {
      
@@ -21,10 +21,14 @@ public class RatAtk : MonoBehaviour
        atk = false;
     }
 
-
-
     void Update()
-    {
+    {       
+        if(atk==true)
+        {
+            Player.currentHealth -= 10;
+        }
+ 
+
         anim = GetComponent<Animator>();
 
         anim.SetBool("Attack", atk);

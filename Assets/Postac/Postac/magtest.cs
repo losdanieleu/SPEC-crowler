@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class magtest : MonoBehaviour
 {
+
     public int maxHealth = 100;
 	public int currentHealth;
 	public HealthBar healthBar;
@@ -65,19 +66,19 @@ void is_alive()
     {
 		if (currentHealth > 0)
 		{
-			
-		}
+            
+        }
         else if (currentHealth <= 0)
         {
 			currentHealth = 0;
 			Debug.Log("Zdeh");
 			Application.Quit();
 		}
+
     }
     void Update()
     {
-
-    
+        healthBar.SetHealth(currentHealth);
         move();
         Turning();
 
@@ -88,20 +89,20 @@ void is_alive()
         }
         else
         {
-
             anim.SetBool("run", false);
-        }
-		
-		if (Input.GetKey(KeyCode.F))
+        };
+
+
+        if (Input.GetKey(KeyCode.F))
         {
             currentHealth -= 10;
-			healthBar.SetHealth(currentHealth);
-		}
-		if (Input.GetKey(KeyCode.B))
+            healthBar.SetHealth(currentHealth);
+        }
+        if (Input.GetKey(KeyCode.B))
         {
             currentMana -= 30;
-			manaBar.SetMana(currentMana);
-		}
+            manaBar.SetMana(currentMana);
+        }
     }
 
     //============================PORUSZANIE=========================================

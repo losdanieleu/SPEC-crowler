@@ -5242,10 +5242,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4724c2a7ef1b23347850b11ae19eb885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 4000
   currentHealth: 0
   healthBar: {fileID: 498125817}
-  maxMana: 150
+  maxMana: 15000
   currentMana: 0
   manaBar: {fileID: 366958702}
   movementspeed: 3
@@ -6655,6 +6655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atk: 0
+  Player: {fileID: 1114794704}
 --- !u!1 &1680515919
 GameObject:
   m_ObjectHideFlags: 0
