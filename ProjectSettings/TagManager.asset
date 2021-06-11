@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Spikes
+  - Spear
   layers:
   - Default
   - TransparentFX
